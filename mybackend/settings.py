@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'mybackend.wsgi.application'
 import os
 import dj_database_url
 
-DATABASE_URL = os.getenv('DATABASE_URL')  # Fetch the DATABASE_URL from environment variables
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 if DATABASE_URL:
     DATABASES = {
@@ -88,6 +88,7 @@ if DATABASE_URL:
     }
 else:
     raise Exception("DATABASE_URL environment variable is not set!")
+
 
 # DATABASES = {
 #     'default': {
@@ -131,7 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -139,7 +140,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-import os
+# import os
 
 # Directory where static files will be collected
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
