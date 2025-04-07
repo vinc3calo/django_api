@@ -20,6 +20,7 @@ from myapp.views import post_list
 from myapp.views import comment_list
 from myapp.views import comment_detail
 from rest_framework.authtoken.views import obtain_auth_token
+from myapp.views import MyProtectedView
 
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     path('api/posts/', post_list, name='post_list'), # for posts GET & POST 
     path('api/comments/', comment_list, name='comment-list'), # for comments GET & POST 
     path('api/comments/<int:pk>/', comment_detail, name='comment-detail'), # for comments DELETE
-    path('api-token-auth/', obtain_auth_token),
+    path('api/protected/', MyProtectedView.as_view(), name='protected-view'),
+    path('api/token/', obtain_auth_token, name='token-obtain'),
 ]
 
