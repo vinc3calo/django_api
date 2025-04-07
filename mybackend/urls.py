@@ -19,11 +19,15 @@ from django.urls import path
 from myapp.views import post_list
 from myapp.views import comment_list
 from myapp.views import comment_detail
+from rest_framework.authtoken.views import obtain_auth_token
+from myapp.views import SecureHelloView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/posts/', post_list, name='post_list'), # for posts GET & POST 
     path('api/comments/', comment_list, name='comment-list'), # for comments GET & POST 
     path('api/comments/<int:pk>/', comment_detail, name='comment-detail'), # for comments DELETE
+    path('api-token-auth/', obtain_auth_token),
+    path('secure-hello/', SecureHelloView.as_view()),
 ]
 
